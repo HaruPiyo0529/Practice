@@ -1,0 +1,98 @@
+html {
+    color: #030303;
+    background-color: #ffffff;
+    font-size: 62.5%;
+    /* googleフォント */
+    font-family: 'Crimson Text', serif;
+    /* font-family: 'Josefin Sans', sans-serif;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    font-family: 'Noto Sans JP', sans-serif; */
+}
+
+body {
+    margin-top: 90px;
+    box-sizing: border-box;
+}
+main {
+    width: 100%;
+}
+
+/* ヘッダー */
+header {
+    width: 90vw;
+    margin: 0 auto;
+    /* margin-bottom: 90px; */
+}
+#nav-pc {
+    display: inline-block;
+    font-size: 30px;
+    margin-top: 65px;
+    margin-bottom: 90px;
+}
+#nav-pc a {
+    margin-right: 60px;
+}
+#home {
+    font-family: 'Arial', sans-serif;
+    font-size: 30px;
+    padding-right: 10px;
+    font-weight: 300;
+}
+#main-visual {
+    width: 100%;
+    height: 0px;
+    padding-top: 46.8%; /* 背景画像の比率を保ったまま可変!! (画像の高さ / 画像の横幅) × 100 */
+    background-image: url(img/mainvisual.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;/* !!背景画像のサイズ指定!! */
+    /* background-position: center;  */
+}
+/* コンテンツ */
+.contents-group {
+    display: table;/* テーブルタグのように使える */
+    table-layout: fixed;
+    width: 100%;
+    /* 余白を入れる */
+    border-collapse: separate;
+    border-spacing: 50px 60px;
+}
+.contents-text {
+    display: table-cell;
+    /* width: 50vw;pxではなくvwにして、画面幅に対してのサイズ指定にすればよい？ */
+    vertical-align: middle;
+    padding: 30px;
+}
+.contents-text h2 {
+    margin: 30px 0;
+    font-size: 4.5rem;
+}
+
+.subtitle {
+    font-size: 32px;
+    
+}
+.contents-text p {
+    width: 100%;
+    font-size: 28px;
+    margin-top: 60px;
+    inline-size: 600px;/* 書字方向に応じた要素ブロックの水平または垂直方向の寸法を定義 */
+    overflow-wrap: normal;
+}
+
+.contents-image {
+    display: table-cell;
+    /* table-cell指定した親要素にサイズが可変にならない…！imgタグに直接width指定 */
+}
+.contents-image img {
+    max-width: 100%;
+    min-width: 80%;
+    width: 100%;
+    height: auto;
+}
+
+/* ========スマホ用レイアウト========== */
+
+@media screen and (max-width: 767px) {
+
+
+}
