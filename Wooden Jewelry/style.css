@@ -1,3 +1,7 @@
+/* ==============
+共通レイアウト
+=============== */
+
 html {
     color: #030303;
     background-color: #ffffff;
@@ -9,6 +13,14 @@ html {
     font-family: 'Noto Sans JP', sans-serif; */
 }
 
+main {
+    width: 100%;
+}
+footer > div {
+    display: flex;
+    justify-content: space-between;/* 要素を両端に！ */
+}
+
 /* ==============
 PC用レイアウト
 =============== */
@@ -18,15 +30,23 @@ PC用レイアウト
         margin: 90px 0 0 0;
         box-sizing: border-box;
     }
-    main {
-        width: 100%;
-    }
+    
 
     /* ヘッダー */
     header {
         width: 90vw;
         margin: 0 auto;
         /* margin-bottom: 90px; */
+    }
+    
+    #main-visual {
+        width: 100%;
+        height: 0px;
+        padding-top: 46.8%; /* 背景画像の比率を保ったまま可変!! (画像の高さ / 画像の横幅) × 100 */
+        background-image: url(img/mainvisual.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;/* !!背景画像のサイズ指定!! */
+        /* background-position: center;  */
     }
     #nav-pc {
         display: inline-block;
@@ -43,19 +63,11 @@ PC用レイアウト
         padding-right: 10px;
         font-weight: 300;
     }
-    #main-visual {
-        width: 100%;
-        height: 0px;
-        padding-top: 46.8%; /* 背景画像の比率を保ったまま可変!! (画像の高さ / 画像の横幅) × 100 */
-        background-image: url(img/mainvisual.jpg);
-        background-repeat: no-repeat;
-        background-size: cover;/* !!背景画像のサイズ指定!! */
-        /* background-position: center;  */
-    }
 
     /* コンテンツ全体幅 */
     #centered {
-        width: 1880px;/* 仕様 */
+        /* width: 1880px; */
+        width: 90vw;
         margin: 0 auto;
     }
 
@@ -85,6 +97,7 @@ PC用レイアウト
         vertical-align: middle;
         margin: 0 auto;
         width: fit-content;
+        padding: 0 6rem 0 6rem;
     	/* margin: 0 auto; これもだめか */
         /* padding-left: 50px;画像とテキストの間の余白、これしか上手くいかない?? */
         
@@ -93,7 +106,8 @@ PC用レイアウト
         position: relative;
             top: 0;
             left: 0; */
-    }
+
+
     .contents-text h2 {
         margin: 30px 0 20px 0;
         font-size: 4.7rem;
@@ -102,7 +116,7 @@ PC用レイアウト
     .subtitle {
         display: inline;
         font-size: 32px;
-
+    
     }
     .contents-text p {
         width: 100%;
@@ -141,10 +155,6 @@ PC用レイアウト
     footer {
         margin: 80px 80px 40px 80px;
     }
-    footer > div {
-        display: flex;
-        justify-content: space-between;/* 要素を両端に！ */
-    }
     #woodenjewelry {
         font-family: 'Arial', sans-serif;
         font-size: 30px;
@@ -154,15 +164,125 @@ PC用レイアウト
         font-size: 30px;
         /* text-align: right;　この構造では右端指定効かなかった */
     }
-
+    }
+    
 
 /* ==============
 スマホ用レイアウト
 =============== */
 @media screen and (max-width: 767px) {
 
+    body {
+        width: 100%;
+        margin: 0 auto;
+        box-sizing: border-box;
+    }
+    
+
+    /* ヘッダー */
+    header {
+        width: 90vw;
+        margin: 0 auto;
+    }
+    
     #main-visual {
-        padding: initial;
+        margin-right: calc(50% - 50vw);
+        margin-left: calc(50% - 50vw);
+        height: 450px;
+        background-image: url(img/mainvisual.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        overflow: hidden;/* 謎の余白きえた？わからない */
+        object-fit:cover;
+        background-position: center; 
+    }
+    #nav-pc {
+        display: inline-block;
+        font-size: 16px;
+        margin: 30px auto 60px auto;
+    }
+    #nav-pc a {
+        margin-right: 20px;
+    }
+    #home {
+        font-family: 'Arial', sans-serif;
+        font-size: 18px;
+        padding-right: 10px;
+        font-weight: 300;
     }
 
+
+    /* コンテンツ全体幅 */
+        #centered {
+            width: 90vw;
+            margin: 0 auto;
+        }
+
+        /* 各コンテンツ */
+        .contents-group {
+            width: 100%;
+            margin: 0 auto;
+        }
+
+
+        .contents-text {
+            display: block;
+            /* table-cell指定した親
+            要素にwidth指定してもサイズが可変にならない…！imgタグに直接width指定 */
+            margin: 0 auto 70px auto;
+            width: fit-content;
+            
+        }
+    
+        .contents-text h2 {
+            margin: 20px 0 5px 0;
+            font-size: 2rem;
+        }
+
+        .subtitle {
+            font-size: 18px;
+        
+        }
+        .contents-text p {
+            width: 100%;
+            font-size: 16px;
+            margin-top: 20px;
+            /* inline-size: 600px;書字方向に応じた要素ブロックの水平または垂直方向の寸法を定義 */
+            overflow-wrap: normal;
+            /* line-height: 50px; */
+        }
+
+        /* 画像 */
+        
+        .contents-image img {
+            max-width: 100%;
+            min-width: 80%;
+            width: 100%;
+            height: auto;
+        }
+        /* Work　画像＋テキスト配置を逆転 */
+        /* .contents-group:nth-child(even) {
+            flex-direction: column-reverse;
+        } */
+
+        #work > .contents-group {
+            display: flex;
+            flex-direction: column-reverse;
+        }
+
+        /* フッター */
+        footer {
+            margin: 20px auto 40px auto;
+        }
+
+        #copyright {
+            font-size: 16px;
+            /* text-align: right;　この構造では右端指定効かなかった */
+        }
+        #woodenjewelry {
+            font-family: 'Arial', sans-serif;
+            font-size: 16px;
+            font-weight: 300;
+        }
+        
 }
